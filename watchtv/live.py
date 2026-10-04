@@ -14,7 +14,7 @@ KEYWORD_GROUP = [
 ]
 
 ENABLE_CHECK = True          # 是否开启源检测
-CHECK_TIMEOUT = 4            # 单个源检测总超时(秒)
+CHECK_TIMEOUT = 2            # 单个源检测总超时(秒)
 MAX_WORKERS = 10             # 并发检测线程数
 
 # ---- 延迟/速度阈值（按需调整）----
