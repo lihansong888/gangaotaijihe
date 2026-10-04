@@ -1,0 +1,419 @@
+#EXTM3U
+#EXTINF:-1 group-title="HS港澳台",Channel[V]
+http://rihou.cc:555/tv/Channel+V
+#EXTINF:-1 group-title="HS港澳台",Channel[V]
+http://116.77.33.98:44330/tsfile/live/1010_1.m3u8?key=txiptv&playlive=0&authid=0
+#EXTINF:-1 group-title="HS港澳台",HBO
+http://31.43.191.125:8080/restream/restream/34571
+#EXTINF:-1 group-title="HS港澳台",HBO
+http://31.43.191.125:8080/restream/restream/34787
+#EXTINF:-1 group-title="HS港澳台",HBO
+http://31.43.191.125:8080/restream/restream/34918
+#EXTINF:-1 group-title="HS港澳台",HBO
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=509e5f41146e278f9eab1ddaceb34515;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",HBO原创巨献
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=3c728c7f54cc6b9fa342949c3a6478db;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",HBO强档巨献
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=7c7fb269298f5396d3f5662a39e72ef6;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",HBO温馨家庭
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=628635c5c86e8588f6661252abf11688;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",Now668
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=d330ae8a7fa51410754bcc3347652feb;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",TVBPearl
+http://php.jdshipin.com:8880/TVOD/iptv.php?id=mzt
+#EXTINF:-1 group-title="HS港澳台",TVBPearl
+http://r.jdshipin.com/ZQ4kN
+#EXTINF:-1 group-title="HS港澳台",TVBPearl
+http://php.jdshipin.com/TVOD/iptv.php?id=mzt
+#EXTINF:-1 group-title="HS港澳台",TVBPearl
+http://r.jdshipin.com/jUx8K
+#EXTINF:-1 group-title="HS港澳台",TVBPearl
+http://php.jdshipin.com/TVOD/iptv.php?id=mzt2
+#EXTINF:-1 group-title="HS港澳台",TVBPearl
+http://122.152.202.33/s/81a8a44f/index.m3u8?id=23
+#EXTINF:-1 group-title="HS港澳台",TVBPearl
+http://cdn9.163189.xyz/smt1.1.php?id=pearl_twn
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+https://cdn6.cc.cd/163189/tvbp
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+http://74.91.26.218:82/live/j2.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+http://r.jdshipin.com/ndGgS
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+http://bak.dou.ddns-ip.net/api.php?n=xxxtw&id=aCMBgd&tk=SLK5QjnsRiya
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+http://php.jdshipin.com/TVOD/iptv.php?id=j2
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+https://o11.163189.xyz/stream/tvb/tvbp/
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+http://php.jdshipin.com/TVOD/iptv.php?id=tvbp
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+http://r.jdshipin.com/Nr5jq
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+https://cdn3.123.rr.kg/stream/tvb/tvbp/
+#EXTINF:-1 group-title="HS港澳台",TVBPlus
+http://aktv.top/AKTV/live/aktv/tvbplus/AKTV.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBS
+https://7612-5516-affc-d88b.kylintv.tv/live/tvbshd_iphone.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBS
+http://31.43.191.125:8080/restream/restream/34915
+#EXTINF:-1 group-title="HS港澳台",TVBS
+http://rihou.cc:555/tv/TVBS1
+#EXTINF:-1 group-title="HS港澳台",TVBS
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=0bd56183204431b5e504b83caf1b663e;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",TVBS亚洲
+http://38.64.72.148/hls/modn/list/4005/chunklist0.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBS亚洲
+http://38.64.72.148:80/hls/modn/list/4005/chunklist1.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBS亚洲
+http://38.64.72.148:80/hls/modn/list/4005/playlist.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBS亚洲
+http://38.64.72.148/hls/modn/list/4005/chunklist1.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBS亚洲
+http://38.64.72.148:80/hls/modn/list/4005/chunklist0.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBS新闻台
+http://31.43.191.125:8080/restream/restream/34818
+#EXTINF:-1 group-title="HS港澳台",TVBS新闻台
+http://61.221.215.25:8800/hls/9/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVB星河
+http://r.jdshipin.com/sXuuD
+#EXTINF:-1 group-title="HS港澳台",TVB星河
+http://php.jdshipin.com/TVOD/iptv.php?id=xinghe
+#EXTINF:-1 group-title="HS港澳台",TVB星河
+http://php.jdshipin.com:8880/TVOD/iptv.php?id=xinghe
+#EXTINF:-1 group-title="HS港澳台",TVB星河
+https://o11.163189.xyz/stream/live/tvbxh/
+#EXTINF:-1 group-title="HS港澳台",TVB星河
+http://php.jdshipin.com:8880/PLTV/iptv.php?id=xinghe
+#EXTINF:-1 group-title="HS港澳台",TVB星河
+http://r.jdshipin.com/Voac4
+#EXTINF:-1 group-title="HS港澳台",TVB星河
+https://o11.163189.xyz/stream/live/tvbxh/#https://cdn10.163189.xyz/stream/163189/xinghe/
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://cdn.163189.xyz/live/fct4k/stream.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://cdn6.163189.xyz/163189/fct4k
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://r.jdshipin.com/GeWKr
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://r.jdshipin.com/qrfbg
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://r.jdshipin.com/qClQf
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct4
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://r.jdshipin.com/n90gt
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://php.jdshipin.com/TVOD/iptv.php?id=fct
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://o11.163189.xyz/stream/tvb/fct/
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://php.jdshipin.com/TVOD/iptv.php?id=fct2
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://r.jdshipin.com/62WM7
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://php.jdshipin.com/TVOD/iptv.php?id=fct4
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://o11.163189.xyz/stream/tvb/fct/#https://mytv.cdn.loc.cc/o12.php?id=fct
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+http://php.jdshipin.com/TVOD/iptv.php?id=fct3
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台
+https://cdn.iptv8k.top/dl/jrys.php?id=3&time=20240926215313&ip=111.229.253.40『线路08』
+#EXTINF:-1 group-title="HS港澳台",ViuTV
+http://r.jdshipin.com/TcKr2
+#EXTINF:-1 group-title="HS港澳台",ViuTV
+http://r.jdshipin.com/vSJvl
+#EXTINF:-1 group-title="HS港澳台",ViuTV
+https://cdn.qd.je/163189/viu
+#EXTINF:-1 group-title="HS港澳台",ViuTV
+https://10.fast.hidns.vip/163189/viu/
+#EXTINF:-1 group-title="HS港澳台",ViuTV
+http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
+#EXTINF:-1 group-title="HS港澳台",ViuTV
+http://php.jdshipin.com/TVOD/iptv.php?id=viutv
+#EXTINF:-1 group-title="HS港澳台",ViuTV
+http://php.jdshipin.com:8880/PLTV/iptv.php?id=viutv
+#EXTINF:-1 group-title="HS港澳台",ViuTV
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=4f0dd8b20a195bdf2dcf5540f665ee0b;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",三立戏剧
+http://61.221.215.25:8800/hls/41/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",三立新闻台
+https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV32.m3u8
+#EXTINF:-1 group-title="HS港澳台",东森新闻台
+http://rihou.cc:555/tv/东森新闻
+#EXTINF:-1 group-title="HS港澳台",东森洋片台
+http://31.43.191.125:8080/vip6821768502490/6c17bae55394/34904
+#EXTINF:-1 group-title="HS港澳台",东森洋片台
+http://31.43.191.125:8080/restream/restream/34813
+#EXTINF:-1 group-title="HS港澳台",东森洋片台
+http://31.43.191.125:8080/restream/restream/34904
+#EXTINF:-1 group-title="HS港澳台",东森洋片台
+http://rihou.cc:555/tv/东森洋片
+#EXTINF:-1 group-title="HS港澳台",东森洋片台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=404c047310e78077b398d2b5999e8459;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",东森电影台
+http://rihou.cc:555/tv/东森电影
+#EXTINF:-1 group-title="HS港澳台",东森财经新闻台
+https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV03.m3u8
+#EXTINF:-1 group-title="HS港澳台",东森超视
+http://38.64.72.148:80/hls/modn/list/2013/chunklist1.m3u8
+#EXTINF:-1 group-title="HS港澳台",中天亚洲台
+http://aktv.top/AKTV/live/aktv/null-12/AKTV.m3u8
+#EXTINF:-1 group-title="HS港澳台",中天娱乐台
+http://61.221.215.25:8800/hls/47/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",中天新闻台
+http://rihou.cc:555/tv/中天新闻
+#EXTINF:-1 group-title="HS港澳台",中天新闻台
+http://iactive-clink.com:8081/live/111ztxw.m3u8
+#EXTINF:-1 group-title="HS港澳台",中天新闻台
+http://flv3948069e.live.126.net/live/dabadqdszbtest78612.flv
+#EXTINF:-1 group-title="HS港澳台",中视
+http://31.43.191.125:8080/restream/restream/34897
+#EXTINF:-1 group-title="HS港澳台",中视
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=8ce4f7f396a14b5f0d5489053ab6c535;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",中视新闻
+https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV09.m3u8
+#EXTINF:-1 group-title="HS港澳台",八大娱乐台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=7593e8da22272cb11a2dfde6e1e4ff82;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",八大戏剧台
+http://61.221.215.25:8800/hls/39/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",八大第一台
+http://61.221.215.25:8800/hls/55/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",八大综合台
+http://61.221.215.25:8800/hls/56/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",公视
+http://31.43.191.125:8080/restream/restream/34891
+#EXTINF:-1 group-title="HS港澳台",公视
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=960f72324544843971737b7010bebdd5;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+https://7612-5516-affc-d88b.kylintv.tv/live/pxinhd_iphone.m3u8
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://cdn.163189.xyz/live/fhzw/stream.m3u8
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://cdn6.163189.xyz/163189/fhzw
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://43.152.224.209/qctv.fengshows.cn/live/0701pcc72.flv
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://219.145.93.74:10000/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://122.152.202.33/s/81a8a44f/index.m3u8?id=15
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://php.jdshipin.com/TVOD/iptv.php?id=fhzw
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://php.jdshipin.com:8880/TVOD/iptv.php?id=fhzw
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://r.jdshipin.com/cCCzW
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://zmgd.zyrnet.com:8888/hls/110/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",凤凰中文
+http://bobohome.ignorelist.com:20247/fengshows?id=2.m3u8
+#EXTINF:-1 group-title="HS港澳台",凤凰电影
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=3ea54960d444c5950872b58000eeef4b;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",凤凰资讯
+http://php.jdshipin.com/TVOD/iptv.php?id=fhzx
+#EXTINF:-1 group-title="HS港澳台",凤凰资讯
+http://173.208.234.146/live/fhzx.m3u8
+#EXTINF:-1 group-title="HS港澳台",凤凰资讯
+http://php.jdshipin.com:8880/TVOD/iptv.php?id=fhzx
+#EXTINF:-1 group-title="HS港澳台",凤凰资讯
+http://r.jdshipin.com/0Rp07
+#EXTINF:-1 group-title="HS港澳台",凤凰资讯
+http://43.152.224.209/qctv.fengshows.cn/live/0701pin72.flv
+#EXTINF:-1 group-title="HS港澳台",凤凰资讯
+http://playtv-live.ifeng.com:80/live/06OLEEWQKN4.m3u8
+#EXTINF:-1 group-title="HS港澳台",凤凰资讯
+http://bobohome.ignorelist.com:20247/fengshows?id=1.m3u8
+#EXTINF:-1 group-title="HS港澳台",凤凰香港
+http://cdn6.163189.xyz/163189/fhhk
+#EXTINF:-1 group-title="HS港澳台",凤凰香港
+http://173.208.234.146/live/fhxg.m3u8
+#EXTINF:-1 group-title="HS港澳台",凤凰香港
+http://php.jdshipin.com/TVOD/iptv.php?id=fhhk
+#EXTINF:-1 group-title="HS港澳台",凤凰香港
+http://php.jdshipin.com:8880/TVOD/iptv.php?id=fhhk
+#EXTINF:-1 group-title="HS港澳台",凤凰香港
+http://r.jdshipin.com/NfC0f
+#EXTINF:-1 group-title="HS港澳台",凤凰香港
+http://r.jdshipin.com/yDoTN
+#EXTINF:-1 group-title="HS港澳台",凤凰香港
+http://43.152.224.209/qctv.fengshows.cn/live/0701phk72.flv
+#EXTINF:-1 group-title="HS港澳台",凤凰香港
+http://122.152.202.33/s/81a8a44f/index.m3u8?id=fhhk TVB
+#EXTINF:-1 group-title="HS港澳台",凤凰香港
+http://bobohome.ignorelist.com:20247/fengshows?id=3.m3u8
+#EXTINF:-1 group-title="HS港澳台",华艺中文台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=d7ae3708af096362aaa0bf1ea69ad8c7;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",华视
+https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV12.m3u8
+#EXTINF:-1 group-title="HS港澳台",华视
+https://7612-5516-affc-d88b.kylintv.tv/live/ctshd_iphone.m3u8
+#EXTINF:-1 group-title="HS港澳台",华视
+http://31.43.191.125:8080/restream/restream/34887
+#EXTINF:-1 group-title="HS港澳台",华视
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=f1eae43af85dbf3e1983a93fbacaa83c;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",台视
+http://38.64.72.148/hls/modn/list/4013/chunklist0.m3u8
+#EXTINF:-1 group-title="HS港澳台",台视
+http://31.43.191.125:8080/restream/restream/34879
+#EXTINF:-1 group-title="HS港澳台",台视
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=d1a92e4301097a73f284a279fcf4afbc;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",无线新闻
+http://r.jdshipin.com/CkuBd
+#EXTINF:-1 group-title="HS港澳台",无线新闻
+https://h5cdn3.kylintv.tv/live/tvbnews_iphone.m3u8
+#EXTINF:-1 group-title="HS港澳台",无线新闻
+http://php.jdshipin.com/TVOD/iptv.php?id=wxxw
+#EXTINF:-1 group-title="HS港澳台",无线新闻
+http://php.jdshipin.com/TVOD/iptv.php?id=tvbxw
+#EXTINF:-1 group-title="HS港澳台",无线新闻
+http://aktv.top/AKTV/live/aktv/null-1/AKTV.m3u8
+#EXTINF:-1 group-title="HS港澳台",民视新闻台
+https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV17.m3u8
+#EXTINF:-1 group-title="HS港澳台",民视新闻台
+http://38.64.72.148/hls/modn/list/4012/playlist.m3u8
+#EXTINF:-1 group-title="HS港澳台",民视新闻台
+http://38.64.72.148/hls/modn/list/4012/chunklist1.m3u8
+#EXTINF:-1 group-title="HS港澳台",民视新闻台
+http://38.64.72.148:80/hls/modn/list/4012/chunklist1.m3u8
+#EXTINF:-1 group-title="HS港澳台",民视新闻台
+http://rihou.cc:555/tv/民视新闻
+#EXTINF:-1 group-title="HS港澳台",纬来体育台
+http://8.138.7.223/【公众号：榴芒电视】/wlty.m3u8
+#EXTINF:-1 group-title="HS港澳台",纬来戏剧台
+http://31.43.191.125:8080/restream/restream/34812
+#EXTINF:-1 group-title="HS港澳台",纬来戏剧台
+http://31.43.191.125:8080/restream/restream/34854
+#EXTINF:-1 group-title="HS港澳台",纬来日本台
+http://31.43.191.125:8080/restream/restream/34853
+#EXTINF:-1 group-title="HS港澳台",纬来日本台
+http://31.43.191.125:8080/restream/restream/34809
+#EXTINF:-1 group-title="HS港澳台",纬来日本台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=4a808304b7f0e526b1812d1b880c37c6;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",纬来电影台
+http://free.cnlive.club/channel/581b458b.m3u8
+#EXTINF:-1 group-title="HS港澳台",纬来电影台
+http://31.43.191.125:8080/restream/restream/34852
+#EXTINF:-1 group-title="HS港澳台",纬来电影台
+http://31.43.191.125:8080/restream/restream/34811
+#EXTINF:-1 group-title="HS港澳台",纬来电影台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=fc7ad76c4c1e493876beef7019fd3497;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",纬来精彩台
+http://61.221.215.25:8800/hls/48/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",纬来综合台
+http://31.43.191.125:8080/restream/restream/34850
+#EXTINF:-1 group-title="HS港澳台",纬来综合台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=ec3baf9a66ce98433f6710f9527c3045;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",纬来育乐台
+http://31.43.191.125:8080/restream/restream/34849
+#EXTINF:-1 group-title="HS港澳台",纬来育乐台
+http://31.43.191.125:8080/restream/restream/34808
+#EXTINF:-1 group-title="HS港澳台",纬来育乐台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=74cc4c3b644c367a8b56dea754e67692;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖天卡通台
+http://31.43.191.125:8080/restream/restream/34842
+#EXTINF:-1 group-title="HS港澳台",靖天卡通台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=7121f93baf03c143dc88fcbe35b332e3;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖天国际
+http://31.43.191.125:8080/restream/restream/34841
+#EXTINF:-1 group-title="HS港澳台",靖天国际
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=a1f7c65ff8cb790483e330fd715bfaa2;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖天戏剧台
+http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv058
+#EXTINF:-1 group-title="HS港澳台",靖天戏剧台
+http://31.43.191.125:8080/restream/restream/34840
+#EXTINF:-1 group-title="HS港澳台",靖天戏剧台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=7523f262f2a702630ac401b50879c11c;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖天日本台
+http://31.43.191.125:8080/restream/restream/34839
+#EXTINF:-1 group-title="HS港澳台",靖天日本台
+http://31.43.191.125:8080/restream/restream/34797
+#EXTINF:-1 group-title="HS港澳台",靖天日本台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=ccc494fbbbf9a526ffe5dfa40aa86e1d;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖天映画
+http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv055
+#EXTINF:-1 group-title="HS港澳台",靖天映画
+http://31.43.191.125:8080/vip6821768502490/6c17bae55394/34838
+#EXTINF:-1 group-title="HS港澳台",靖天映画
+http://31.43.191.125:8080/restream/restream/34838
+#EXTINF:-1 group-title="HS港澳台",靖天映画
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=ffba776b236f4d5b0b73d6a233828ada;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖天欢乐台
+http://31.43.191.125:8080/restream/restream/34837
+#EXTINF:-1 group-title="HS港澳台",靖天欢乐台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=edfbc25c34a0d10848731f323d77876f;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖天综合台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=f55a05caf567694d19a472957e9edbb2;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖天育乐台
+http://31.43.191.125:8080/restream/restream/34835
+#EXTINF:-1 group-title="HS港澳台",靖天育乐台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=2a0b47b4932bf302da76adc053663c45;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖天资讯台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=14cc21b7b4bf570db94cd3b91fa9dea6;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖洋卡通台
+http://31.43.191.125:8080/restream/restream/34834
+#EXTINF:-1 group-title="HS港澳台",靖洋卡通台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=9e748e7e875da07f562ded22bfa5e1b2;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",靖洋戏剧台
+http://31.43.191.125:8080/restream/restream/34833
+#EXTINF:-1 group-title="HS港澳台",靖洋戏剧台
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=a40730066848783255e1e34266bd4c3c;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",龙华偶像
+http://31.43.191.125:8080/restream/restream/34830
+#EXTINF:-1 group-title="HS港澳台",龙华偶像
+https://cdn.qd.je/163189/lhox
+#EXTINF:-1 group-title="HS港澳台",龙华偶像
+http://cdn8.163189.xyz/163189/lhox
+#EXTINF:-1 group-title="HS港澳台",龙华偶像
+https://cdn8.163189.xyz/live/lhox/stream.m3u8
+#EXTINF:-1 group-title="HS港澳台",龙华偶像
+https://8.fast.hidns.vip/163189/lhox
+#EXTINF:-1 group-title="HS港澳台",龙华偶像
+http://8.fast.hidns.vip/163189/lhox
+#EXTINF:-1 group-title="HS港澳台",龙华偶像
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=d83278857f07c25df0445f97cdae657a;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",龙华戏剧
+http://cdn8.163189.xyz/163189/lhxj
+#EXTINF:-1 group-title="HS港澳台",龙华戏剧
+https://8.fast.hidns.vip/163189/lhxj
+#EXTINF:-1 group-title="HS港澳台",龙华洋片
+http://31.43.191.125:8080/restream/restream/34828
+#EXTINF:-1 group-title="HS港澳台",龙华洋片
+http://cdn8.163189.xyz/163189/lhyp
+#EXTINF:-1 group-title="HS港澳台",龙华洋片
+https://8.fast.hidns.vip/163189/lhyp
+#EXTINF:-1 group-title="HS港澳台",龙华洋片
+http://bak.dou.ddns-ip.net/api.php?n=xxxtw&id=P4JMrn&tk=SLK5QjnsRiya
+#EXTINF:-1 group-title="HS港澳台",龙华洋片
+https://cdn8.163189.xyz/live/lhyp/stream.m3u8
+#EXTINF:-1 group-title="HS港澳台",龙华洋片
+https://cdn.qd.je/163189/lhyp
+#EXTINF:-1 group-title="HS港澳台",龙华洋片
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=498d7e72e2241e4dc8442c8a7843d4cc;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",龙华电影
+http://cdn8.163189.xyz/163189/lhdy
+#EXTINF:-1 group-title="HS港澳台",龙华电影
+http://37.27.111.214:8080/live/19/hls.m3u8
+#EXTINF:-1 group-title="HS港澳台",龙华电影
+https://cdn8.163189.xyz/live/lhdy/stream.m3u8
+#EXTINF:-1 group-title="HS港澳台",龙华经典
+http://cdn8.163189.xyz/163189/lhjd
+#EXTINF:-1 group-title="HS港澳台",龙华经典
+http://31.43.191.125:8080/restream/restream/34831
+#EXTINF:-1 group-title="HS港澳台",龙华经典
+http://31.43.191.125:8080/restream/restream/34826
+#EXTINF:-1 group-title="HS港澳台",龙华经典
+https://cdn8.163189.xyz/live/lhjd/stream.m3u8
+#EXTINF:-1 group-title="HS港澳台",龙华经典
+http://8.fast.hidns.vip/163189/lhjd
+#EXTINF:-1 group-title="HS港澳台",龙华经典
+https://8.fast.hidns.vip/163189/lhjd
+#EXTINF:-1 group-title="HS港澳台",龙华经典
+https://cdn.qd.je/163189/lhjd
+#EXTINF:-1 group-title="HS港澳台",龙华经典
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=feb7ba9ae4e3835f88efd731c0da1481;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
+#EXTINF:-1 group-title="HS港澳台",龙祥时代
+http://bak.dou.ddns-ip.net/api.php?n=xxxtw&id=4Vqzbo&tk=SLK5QjnsRiya
+#EXTINF:-1 group-title="HS港澳台",龙祥时代
+http://kt.hmysapp.cn:222/cdnlive.php?mode=play;id=9d00d6e33b1b43a50cf3e801cab3ce74;token=R6t2euYFvTPtNGV6HgyWZD2Ynxc5SNqr;type=mobile2026Acc3iL
