@@ -4,7 +4,7 @@ import os
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# ========== 配置区 ==========
+# ========== 【极致秒播｜宁少勿滥】配置区 ==========
 URL_LIST = [
     "https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live_lite.txt",
 ]
@@ -13,14 +13,15 @@ KEYWORD_GROUP = [
     ("纪录片直播", "HS纪录片直播"),
 ]
 
-ENABLE_CHECK = True          # 是否开启源检测
-CHECK_TIMEOUT = 2            # 单个源检测总超时(秒)
+ENABLE_CHECK = True          # 开启源检测
+CHECK_TIMEOUT = 2            # 单个源总超时2秒，超过直接丢弃
 MAX_WORKERS = 10             # 并发检测线程数
 
-# ---- 延迟/速度阈值（按需调整）----
-MAX_TTFB_MS = 500          # 首字节超过此毫秒数判定为慢（>1200ms 踢）
-MIN_SPEED_KBPS = 50        # 下载速度低于此 KB/s 判定为卡（<120KB/s 踢）
-PROBE_BYTES = 512 * 1024     # 探测下载量：512KB，用来算速度
+# ---- 秒播硬阈值，只留秒开源 ----
+MAX_TTFB_MS = 250            # 首字节响应必须≤250ms，服务器慢直接剔除
+MIN_SPEED_KBPS = 150         # 最低速度150KB/s，保证播放不缓冲
+PROBE_BYTES = 128 * 1024     # 探测128KB，小数据快速测速，不浪费时间
+M3U8_MAX_TOTAL_MS = 500      # m3u8：索引+分片总延迟上限500ms，超过剔除
 # ==================================
 
 HEADERS = {
@@ -28,20 +29,14 @@ HEADERS = {
 }
 
 def probe_speed(url: str):
-    """
-    返回 (ok: bool, ttfb_ms: float, speed_kbps: float, reason: str)
-    同时测：首字节时间 TTFB + 实际下载速度
-    """
+    """直链源检测：TTFB + 下载速度"""
     try:
         t0 = time.time()
         resp = requests.get(url, timeout=CHECK_TIMEOUT, headers=HEADERS,
                             allow_redirects=True, stream=True)
         resp.raise_for_status()
-
-        # 第一个字节到达时间（TTFB）
         ttfb = (time.time() - t0) * 1000
 
-        # 拉取一段数据算速度
         downloaded = 0
         data_start = time.time()
         for chunk in resp.iter_content(64 * 1024):
@@ -50,7 +45,6 @@ def probe_speed(url: str):
             downloaded += len(chunk)
             if downloaded >= PROBE_BYTES:
                 break
-            # 下载中途如果总时长已超 timeout，停
             if time.time() - t0 > CHECK_TIMEOUT:
                 break
         elapsed = time.time() - data_start
@@ -72,21 +66,14 @@ def probe_speed(url: str):
 
 
 def probe_m3u8_deep(url: str):
-    """
-    对 HLS(.m3u8) 源做深检：
-    1. 拉 playlist
-    2. 取最后一个分片（最接近实时直播的那片）
-    3. 下载该片测耗时
-    返回 (ok, ttfb_ms, speed_kbps, reason)
-    """
+    """m3u8深度检测：模拟真实播放器加载索引+最新分片"""
     try:
         t0 = time.time()
         r = requests.get(url, timeout=CHECK_TIMEOUT, headers=HEADERS)
         r.raise_for_status()
         playlist_ttfb = (time.time() - t0) * 1000
 
-        lines = [l.strip() for l in r.text.splitlines() if l.strip() and not l.startswith("#EXT-X-DISCONTINUATION")]
-        # 找最后一个分片地址
+        lines = [l.strip() for l in r.text.splitlines() if l.strip() and not l.startswith("#")]
         seg_url = None
         for l in reversed(lines):
             if not l.startswith("#"):
@@ -95,14 +82,12 @@ def probe_m3u8_deep(url: str):
         if not seg_url:
             return False, playlist_ttfb, 0, "m3u8内无分片"
 
-        # 解析相对路径
         if seg_url.startswith("http"):
             full_url = seg_url
         else:
             from urllib.parse import urljoin
             full_url = urljoin(url, seg_url)
 
-        # 下载该分片
         seg_t0 = time.time()
         sr = requests.get(full_url, timeout=CHECK_TIMEOUT, headers=HEADERS, stream=True)
         sr.raise_for_status()
@@ -122,10 +107,9 @@ def probe_m3u8_deep(url: str):
         elapsed = time.time() - dstart
         speed_kbps = (downloaded / 1024) / max(elapsed, 0.001)
 
-        # 综合判定：playlist TTFB + 分片 TTFB
         total_ttfb = playlist_ttfb + seg_ttfb
-        if total_ttfb > MAX_TTFB_MS * 2:
-            return False, total_ttfb, speed_kbps, f"起播慢({total_ttfb:.0f}ms)"
+        if total_ttfb > M3U8_MAX_TOTAL_MS:
+            return False, total_ttfb, speed_kbps, f"起播慢({total_ttfb:.0f}ms>{M3U8_MAX_TOTAL_MS})"
         if speed_kbps < MIN_SPEED_KBPS:
             return False, total_ttfb, speed_kbps, f"分片速度低({speed_kbps:.0f}KB/s)"
         return True, total_ttfb, speed_kbps, "OK(m3u8)"
@@ -135,7 +119,6 @@ def probe_m3u8_deep(url: str):
 
 
 def check_stream(url: str):
-    """根据URL后缀选择检测策略"""
     u = url.lower().split("?")[0]
     if u.endswith(".m3u8"):
         return probe_m3u8_deep(url)
@@ -215,7 +198,7 @@ def main():
 
     valid_channels = []
     if ENABLE_CHECK and total_fetched > 0:
-        print(f"🧪 开始深度检测（TTFB≤{MAX_TTFB_MS}ms, 速度≥{MIN_SPEED_KBPS}KB/s）")
+        print(f"🧪 【极致秒播检测】超时{CHECK_TIMEOUT}s | TTFB≤{MAX_TTFB_MS}ms | 速度≥{MIN_SPEED_KBPS}KB/s")
         future_map = {}
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             for item in raw_list:
@@ -235,19 +218,15 @@ def main():
                 else:
                     bad_cnt += 1
                     print(f"  ❌ {name:<20} {reason}")
-        print(f"\n📊 检测结果：有效 {ok_cnt} / 剔除 {bad_cnt} / 共 {total_fetched}")
+        print(f"\n📊 检测结果：秒播可用 {ok_cnt} / 剔除 {bad_cnt} / 共 {total_fetched}")
     else:
         valid_channels = [(g, n, u, 0, 0) for g, n, u in raw_list]
-        print("⚠️ 源检测已关闭")
 
-    # ---- 排序：先按分组，再按频道名，同频道多源聚在一起；同频道内按 TTFB 升序(最快的排前面) ----
+    # 排序：分组 → 频道名 → TTFB升序，同频道最快源放最前面
     valid_channels.sort(key=lambda x: (x[0], x[1], x[3]))
-    print("🔢 已按 (分组, 频道名, TTFB升序) 排序，同频道最快源排最前")
 
-    # ---- 输出 m3u8 ----
     output_m3u = ["#EXTM3U"]
     for group, cname, curl, ttfb, speed in valid_channels:
-        # 同频道多源时，在名字后面标注延迟，方便播放器/你识别
         label = cname
         if ENABLE_CHECK:
             label = f"{cname}[{ttfb:.0f}ms]"
@@ -260,7 +239,7 @@ def main():
     with open(m3u8_path, "w", encoding="utf-8") as f:
         f.write("\n".join(output_m3u))
 
-    print(f"\n🎉 完成！输出频道数：{len(valid_channels)}")
+    print(f"\n🎉 完成！秒播频道数：{len(valid_channels)}")
     print(f"📁 文件：{m3u8_path}")
 
 if __name__ == "__main__":
