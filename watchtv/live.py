@@ -2,10 +2,9 @@ import requests
 import re
 import os
 import time
-import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# ========== 【秒播+音画完整｜宁少勿滥】配置区 ==========
+# ========== 配置区 ==========
 URL_LIST = [
     "https://raw.githubusercontent.com/CCSH/IPTV/refs/heads/main/live_lite.txt",
 ]
@@ -14,31 +13,27 @@ KEYWORD_GROUP = [
     ("纪录片直播", "HS纪录片直播"),
 ]
 
-ENABLE_CHECK = True
-HTTP_TIMEOUT = 2            # HTTP粗筛超时
-FFMPEG_TIMEOUT = 2          # ffmpeg媒体探测总超时，超过直接丢弃
-MAX_WORKERS = 8             # ffmpeg比较吃资源，并发降到8，不要开太高
+ENABLE_CHECK = True          # 是否开启源检测
+CHECK_TIMEOUT = 3            # 单个源检测总超时(秒) —— 超过3秒无法起播的直接踢
+MAX_WORKERS = 10             # 并发检测线程数
 
-# HTTP粗筛阈值（前置过滤，减少ffmpeg压力）
-MAX_TTFB_MS = 400
-MIN_SPEED_KBPS = 100
-PROBE_BYTES = 128 * 1024
-
-# ffmpeg媒体校验规则（核心！解决无声问题）
-MAX_START_TIME_S = 1.5      # 媒体首帧出画面必须在1.5s内，大于则剔除
-REQUIRE_AUDIO = True        # 强制要求必须有音频轨道，无声源直接丢弃
-REQUIRE_VIDEO = True        # 强制要求必须有视频轨道
+# ---- 秒播阈值（严格模式）----
+MAX_TTFB_MS = 300            # 首字节超过300ms = 服务器响应慢，踢
+MIN_SPEED_KBPS = 100         # 速度低于100KB/s = 会卡，踢
+PROBE_BYTES = 200 * 1024     # 探测200KB即可算速度，不用下512KB那么多
+M3U8_MAX_TOTAL_MS = 600      # m3u8: playlist+分片总耗时超600ms = 起播慢，踢
 # ==================================
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
-def http_pre_check(url: str):
-    """HTTP前置粗筛：快速淘汰连接失败、响应过慢源"""
+def probe_speed(url: str):
+    """测直链源：TTFB + 下载速度"""
     try:
         t0 = time.time()
-        resp = requests.get(url, timeout=HTTP_TIMEOUT, headers=HEADERS, allow_redirects=True, stream=True)
+        resp = requests.get(url, timeout=CHECK_TIMEOUT, headers=HEADERS,
+                            allow_redirects=True, stream=True)
         resp.raise_for_status()
         ttfb = (time.time() - t0) * 1000
 
@@ -50,75 +45,85 @@ def http_pre_check(url: str):
             downloaded += len(chunk)
             if downloaded >= PROBE_BYTES:
                 break
-            if time.time() - t0 > HTTP_TIMEOUT:
+            if time.time() - t0 > CHECK_TIMEOUT:
                 break
         elapsed = time.time() - data_start
         resp.close()
+
         if downloaded < 32 * 1024:
-            return False, ttfb, 0, "HTTP：下载数据过少"
+            return False, ttfb, 0, "下载数据过少"
+
         speed_kbps = (downloaded / 1024) / max(elapsed, 0.001)
+
         if ttfb > MAX_TTFB_MS:
-            return False, ttfb, speed_kbps, f"HTTP：TTFB过高({ttfb:.0f}ms)"
+            return False, ttfb, speed_kbps, f"TTFB过高({ttfb:.0f}ms>{MAX_TTFB_MS})"
         if speed_kbps < MIN_SPEED_KBPS:
-            return False, ttfb, speed_kbps, f"HTTP：速度过低({speed_kbps:.0f}KB/s)"
-        return True, ttfb, speed_kbps, "HTTP预通过"
+            return False, ttfb, speed_kbps, f"速度过低({speed_kbps:.0f}KB/s<{MIN_SPEED_KBPS})"
+        return True, ttfb, speed_kbps, "OK"
+
     except requests.exceptions.RequestException as e:
-        return False, 0, 0, f"HTTP失败:{type(e).__name__}"
+        return False, 0, 0, f"连接失败:{type(e).__name__}"
 
-def ffmpeg_media_check(url: str):
-    """
-    使用ffmpeg探测媒体流：
-    1. 检测是否存在音轨、视频轨
-    2. 检测首帧加载耗时（真实起播时间）
-    返回: ok, start_time_s, has_video, has_audio, reason
-    """
-    cmd = [
-        "ffmpeg",
-        "-hide_banner",
-        "-v", "error",
-        "-ss", "0",
-        "-i", url,
-        "-t", "1",
-        "-f", "null", "-",
-    ]
-    t_start = time.time()
+
+def probe_m3u8_deep(url: str):
+    """m3u8深检：拉playlist → 找最新分片 → 下载该片，模拟真实起播"""
     try:
-        proc = subprocess.Popen(
-            cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
-        stdout, stderr = proc.communicate(timeout=FFMPEG_TIMEOUT)
-        load_time = time.time() - t_start
+        t0 = time.time()
+        r = requests.get(url, timeout=CHECK_TIMEOUT, headers=HEADERS)
+        r.raise_for_status()
+        playlist_ttfb = (time.time() - t0) * 1000
 
-        has_video = "Stream #0:.*Video:" in stderr
-        has_audio = "Stream #0:.*Audio:" in stderr
+        lines = [l.strip() for l in r.text.splitlines() if l.strip() and not l.startswith("#")]
+        seg_url = None
+        for l in reversed(lines):
+            if not l.startswith("#"):
+                seg_url = l
+                break
+        if not seg_url:
+            return False, playlist_ttfb, 0, "m3u8内无分片"
 
-        if REQUIRE_VIDEO and not has_video:
-            return False, load_time, has_video, has_audio, "媒体：无视频轨道"
-        if REQUIRE_AUDIO and not has_audio:
-            return False, load_time, has_video, has_audio, "媒体：无音频轨道"
-        if load_time > MAX_START_TIME_S:
-            return False, load_time, has_video, has_audio, f"媒体：起播慢{load_time:.2f}s>{MAX_START_TIME_S}s"
+        if seg_url.startswith("http"):
+            full_url = seg_url
+        else:
+            from urllib.parse import urljoin
+            full_url = urljoin(url, seg_url)
 
-        return True, load_time, has_video, has_audio, "媒体校验OK"
-    except subprocess.TimeoutExpired:
-        proc.kill()
-        return False, time.time()-t_start, False, False, "媒体探测超时"
+        seg_t0 = time.time()
+        sr = requests.get(full_url, timeout=CHECK_TIMEOUT, headers=HEADERS, stream=True)
+        sr.raise_for_status()
+        seg_ttfb = (time.time() - seg_t0) * 1000
+
+        downloaded = 0
+        dstart = time.time()
+        for chunk in sr.iter_content(64 * 1024):
+            if not chunk:
+                break
+            downloaded += len(chunk)
+            if downloaded >= PROBE_BYTES:
+                break
+            if time.time() - seg_t0 > CHECK_TIMEOUT:
+                break
+        sr.close()
+        elapsed = time.time() - dstart
+        speed_kbps = (downloaded / 1024) / max(elapsed, 0.001)
+
+        total_ttfb = playlist_ttfb + seg_ttfb
+        if total_ttfb > M3U8_MAX_TOTAL_MS:
+            return False, total_ttfb, speed_kbps, f"起播慢({total_ttfb:.0f}ms>{M3U8_MAX_TOTAL_MS})"
+        if speed_kbps < MIN_SPEED_KBPS:
+            return False, total_ttfb, speed_kbps, f"分片速度低({speed_kbps:.0f}KB/s)"
+        return True, total_ttfb, speed_kbps, "OK(m3u8)"
+
     except Exception as e:
-        return False, time.time()-t_start, False, False, f"媒体探测异常:{str(e)}"
+        return False, 0, 0, f"m3u8深检失败:{type(e).__name__}"
+
 
 def check_stream(url: str):
-    """双层校验：先HTTP粗筛，通过再走ffmpeg媒体校验"""
-    http_ok, ttfb, speed, http_msg = http_pre_check(url)
-    if not http_ok:
-        return False, ttfb, speed, 0, False, False, http_msg
-    media_ok, media_load, has_video, has_audio, media_msg = ffmpeg_media_check(url)
-    if media_ok:
-        return True, ttfb, speed, media_load, has_video, has_audio, f"{http_msg} | {media_msg}"
-    else:
-        return False, ttfb, speed, media_load, has_video, has_audio, media_msg
+    u = url.lower().split("?")[0]
+    if u.endswith(".m3u8"):
+        return probe_m3u8_deep(url)
+    return probe_speed(url)
+
 
 def parse_any(text: str):
     res = []
@@ -163,6 +168,7 @@ def get_group_title(extinf):
 def main():
     raw_list = []
     url_seen = set()
+
     print(f"🔍 开始拉取源列表，共 {len(URL_LIST)} 个远程地址")
     for url in URL_LIST:
         try:
@@ -186,12 +192,13 @@ def main():
                 raw_list.append((output_group, ch_name, play_url))
         except Exception as e:
             print(f"⚠️ 拉取 {url} 失败：{e}")
+
     total_fetched = len(raw_list)
     print(f"✅ 筛选+去重完成，待检测源总数：{total_fetched}")
 
     valid_channels = []
     if ENABLE_CHECK and total_fetched > 0:
-        print(f"🧪 双层检测：HTTP粗筛 + FFmpeg音画校验 | 起播上限{MAX_START_TIME_S}s | 强制音+视频轨")
+        print(f"🧪 秒播严格检测（超时{CHECK_TIMEOUT}s | TTFB≤{MAX_TTFB_MS}ms | 速度≥{MIN_SPEED_KBPS}KB/s）")
         future_map = {}
         with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
             for item in raw_list:
@@ -201,26 +208,28 @@ def main():
             for future in as_completed(future_map):
                 group, name, u = future_map[future]
                 try:
-                    ok, ttfb, speed, media_t, has_v, has_a, reason = future.result()
+                    ok, ttfb, speed, reason = future.result()
                 except Exception as e:
-                    ok, ttfb, speed, media_t, has_v, has_a, reason = False,0,0,0,False,False,str(e)
+                    ok, ttfb, speed, reason = False, 0, 0, str(e)
                 if ok:
-                    valid_channels.append((group, name, u, ttfb, media_t))
+                    valid_channels.append((group, name, u, ttfb, speed))
                     ok_cnt += 1
-                    print(f"  ✅ {name:<20} TTFB={ttfb:5.0f}ms 媒体耗时={media_t:.2f}s | {reason}")
+                    print(f"  ✅ {name:<20} TTFB={ttfb:5.0f}ms  速度={speed:6.0f}KB/s")
                 else:
                     bad_cnt += 1
                     print(f"  ❌ {name:<20} {reason}")
-        print(f"\n📊 检测结果：音画齐全秒播 {ok_cnt} / 剔除 {bad_cnt} / 共 {total_fetched}")
+        print(f"\n📊 检测结果：秒播 {ok_cnt} / 剔除 {bad_cnt} / 共 {total_fetched}")
     else:
-        valid_channels = [(g, n, u, 0,0) for g, n, u in raw_list]
+        valid_channels = [(g, n, u, 0, 0) for g, n, u in raw_list]
 
-    # 排序：分组、频道名、真实媒体起播时间升序（最快在前）
-    valid_channels.sort(key=lambda x: (x[0], x[1], x[4]))
+    # 排序：分组 → 频道名 → TTFB升序（最快排最前）
+    valid_channels.sort(key=lambda x: (x[0], x[1], x[3]))
 
     output_m3u = ["#EXTM3U"]
-    for group, cname, curl, ttfb, media_t in valid_channels:
-        label = f"{cname}[{media_t:.2f}s]"
+    for group, cname, curl, ttfb, speed in valid_channels:
+        label = cname
+        if ENABLE_CHECK:
+            label = f"{cname}[{ttfb:.0f}ms]"
         fake_ext = f'#EXTINF:-1 group-title="{group}",{label}'
         output_m3u.append(fake_ext)
         output_m3u.append(curl)
@@ -230,7 +239,7 @@ def main():
     with open(m3u8_path, "w", encoding="utf-8") as f:
         f.write("\n".join(output_m3u))
 
-    print(f"\n🎉 完成！音画齐全秒播频道：{len(valid_channels)}")
+    print(f"\n🎉 完成！秒播频道数：{len(valid_channels)}")
     print(f"📁 文件：{m3u8_path}")
 
 if __name__ == "__main__":
