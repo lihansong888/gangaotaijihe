@@ -1,35 +1,45 @@
 #EXTM3U
-#EXTINF:-1 group-title="HS港澳台",TVBS[266ms]
+#EXTINF:-1 group-title="HS港澳台",TVBS[466ms]
 https://7612-5516-affc-d88b.kylintv.tv/live/tvbshd_iphone.m3u8
-#EXTINF:-1 group-title="HS港澳台",TVBS亚洲[245ms]
-http://38.64.72.148/hls/modn/list/4005/chunklist1.m3u8
-#EXTINF:-1 group-title="HS港澳台",TVBS亚洲[247ms]
-http://38.64.72.148:80/hls/modn/list/4005/playlist.m3u8
-#EXTINF:-1 group-title="HS港澳台",TVBS亚洲[248ms]
+#EXTINF:-1 group-title="HS港澳台",TVBS亚洲[44ms]
 http://38.64.72.148:80/hls/modn/list/4005/chunklist1.m3u8
-#EXTINF:-1 group-title="HS港澳台",TVBS亚洲[249ms]
+#EXTINF:-1 group-title="HS港澳台",TVBS亚洲[45ms]
 http://38.64.72.148/hls/modn/list/4005/chunklist0.m3u8
-#EXTINF:-1 group-title="HS港澳台",TVB翡翠台[143ms]
+#EXTINF:-1 group-title="HS港澳台",TVBS亚洲[45ms]
+http://38.64.72.148:80/hls/modn/list/4005/playlist.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBS亚洲[47ms]
+http://38.64.72.148/hls/modn/list/4005/chunklist1.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVBS新闻台[590ms]
+http://61.221.215.25:8800/hls/9/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",TVB翡翠台[280ms]
 http://cdn.163189.xyz/live/fct4k/stream.m3u8
-#EXTINF:-1 group-title="HS港澳台",三立新闻台[128ms]
+#EXTINF:-1 group-title="HS港澳台",三立戏剧[579ms]
+http://61.221.215.25:8800/hls/41/index.m3u8
+#EXTINF:-1 group-title="HS港澳台",三立新闻台[278ms]
 https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV32.m3u8
-#EXTINF:-1 group-title="HS港澳台",东森财经新闻台[129ms]
+#EXTINF:-1 group-title="HS港澳台",东森财经新闻台[298ms]
 https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV03.m3u8
-#EXTINF:-1 group-title="HS港澳台",东森超视[251ms]
+#EXTINF:-1 group-title="HS港澳台",东森超视[59ms]
 http://38.64.72.148:80/hls/modn/list/2013/chunklist1.m3u8
-#EXTINF:-1 group-title="HS港澳台",中视新闻[107ms]
+#EXTINF:-1 group-title="HS港澳台",中视新闻[417ms]
 https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV09.m3u8
-#EXTINF:-1 group-title="HS港澳台",凤凰中文[191ms]
+#EXTINF:-1 group-title="HS港澳台",凤凰中文[455ms]
 https://7612-5516-affc-d88b.kylintv.tv/live/pxinhd_iphone.m3u8
-#EXTINF:-1 group-title="HS港澳台",华视[172ms]
+#EXTINF:-1 group-title="HS港澳台",凤凰香港[555ms]
+https://epg.pw/stream/8770e89223a086eb1b8a0c931e42296d772a8069ad3eb72540e0c434e7cb3e93.m3u8
+#EXTINF:-1 group-title="HS港澳台",华视[260ms]
 https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV12.m3u8
-#EXTINF:-1 group-title="HS港澳台",华视[222ms]
+#EXTINF:-1 group-title="HS港澳台",华视[448ms]
 https://7612-5516-affc-d88b.kylintv.tv/live/ctshd_iphone.m3u8
-#EXTINF:-1 group-title="HS港澳台",民视新闻台[119ms]
-https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV17.m3u8
-#EXTINF:-1 group-title="HS港澳台",民视新闻台[244ms]
+#EXTINF:-1 group-title="HS港澳台",无线新闻[572ms]
+https://h5cdn3.kylintv.tv/live/tvbnews_iphone.m3u8
+#EXTINF:-1 group-title="HS港澳台",民视新闻台[44ms]
 http://38.64.72.148/hls/modn/list/4012/chunklist1.m3u8
-#EXTINF:-1 group-title="HS港澳台",民视新闻台[244ms]
+#EXTINF:-1 group-title="HS港澳台",民视新闻台[56ms]
 http://38.64.72.148/hls/modn/list/4012/playlist.m3u8
-#EXTINF:-1 group-title="HS港澳台",民视新闻台[246ms]
+#EXTINF:-1 group-title="HS港澳台",民视新闻台[59ms]
 http://38.64.72.148:80/hls/modn/list/4012/chunklist1.m3u8
+#EXTINF:-1 group-title="HS港澳台",民视新闻台[222ms]
+https://raw.githubusercontent.com/ChiSheng9/iptv/master/TV17.m3u8
+#EXTINF:-1 group-title="HS港澳台",纬来体育台[536ms]
+https://epg.pw/stream/4f18dfe0593db5c686eb64ae8edaf2a9202d4d46bdc9bbde2cee27708e12ea01.m3u8
